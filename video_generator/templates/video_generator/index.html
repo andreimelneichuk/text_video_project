@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Video</title>
+</head>
+<body>
+    <h1>Генерация видео с бегущей строкой</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="text">Введите текст:</label>
+        <input type="text" id="text" name="text" required>
+        <button type="submit">Создать видео</button>
+    </form>
+</body>
+</html>
