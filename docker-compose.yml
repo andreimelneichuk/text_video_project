@@ -3,6 +3,9 @@ version: '3'
 services:
   web:
     build: .
+    command: /start.sh #>
+      #sh -c "/wait-for-it.sh db 5432 -- python manage.py migrate &&
+       #      python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
     volumes:
@@ -11,15 +14,22 @@ services:
       - DEBUG=True
     depends_on:
       - db
+    networks:
+      - mynetwork
 
   db:
     image: postgres:15
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: mydb
+      POSTGRES_DB: mydatabase
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
+    networks:
+      - mynetwork
 
 volumes:
   pgdata:
+
+networks:
+  mynetwork:

@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-dev-key-replace-me'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -70,6 +69,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'text_video_project.wsgi.application'
 
+import os
+
+# Existing settings...
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+STATIC_URL = 'static/'
+
+# Path where static files will be collected
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Additional static file directories
+STATICFILES_DIRS = [
+    #sos.path.join(BASE_DIR, 'static'),
+]
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -78,7 +92,7 @@ WSGI_APPLICATION = 'text_video_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb',
+        'NAME': 'mydatabase',
         'USER': 'myuser',
         'PASSWORD': 'mypassword',
         'HOST': 'db',  # Ссылка на сервис базы данных из Docker Compose
