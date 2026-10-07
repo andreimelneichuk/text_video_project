@@ -1,1 +1,21 @@
-/.DS_Store
+# Секреты и окружение
+.env
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Django
+db.sqlite3
+staticfiles/
+media/
+
+# Логи, IDE, системные файлы
+*.log
+.idea/
+.vscode/
+.DS_Store
+video_text.mp4
